@@ -1,0 +1,25 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:ChartApp.ViewModels"
+        xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ChartApp.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        FontFamily="{StaticResource AppFontPersian}"
+        FlowDirection="LeftToRight"
+        Title="Chart App">
+    <Border Background="LightYellow" BorderBrush="Orange" BorderThickness="15" Padding="15">
+        <Grid Margin="4" ShowGridLines="False" ColumnDefinitions="*,Auto" RowDefinitions="*">
+            <lvc:CartesianChart Grid.Row="0" Grid.Column="0"
+                                Series="{Binding Chart.Series}">
+            </lvc:CartesianChart>
+            <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <Button Content="CPU (ON)" Width="125" HorizontalContentAlignment="Center" Command="{Binding BtnCpuCommand}"></Button>
+                <Button Content="MEMORY (OFF)" Width="125" HorizontalContentAlignment="Center" Command="{Binding BtnMemoryCommand}"></Button>
+                <Button Content="DISK (OFF)" Width="125" HorizontalContentAlignment="Center" Command="{Binding BtnDiskCommand}"></Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
